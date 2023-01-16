@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+void selectionSort(int array[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < size; j++) {
+            if (array[j] < array[minIndex]) {
+                minIndex = j;
+            }
+        }
+        int temp = array[minIndex];
+        array[minIndex] = array[i];
+        array[i] = temp;
+    }
+}
+
+int main() {
+    int array[] = {3, 4, 1, 5, 2};
+    int size = sizeof(array) / sizeof(array[0]);
+
+    cout << "Original array: ";
+    for (int i = 0; i < size; i++) {
+        cout << array[i] << " ";
+    }
+    cout << endl;
+
+    selectionSort(array, size);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < size; i++) {
+        cout << array[i] << " ";
+    }
+
+    return 0;
+}
